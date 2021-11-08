@@ -1,0 +1,748 @@
+<div class="site-content fondo">
+    <div class="site-header">
+        <div class="container">
+            <a href="#" class="branding">
+                <img src="assets/index/images/logo.png" alt="" class="logo">
+                <div class="logo-type">
+                    <h1 class="site-title">Yucatan Tropical</h1>
+                    <small class="site-description">clime UTM</small>
+                </div>
+            </a>
+
+            <!-- Default snippet for navigation -->
+            <div class="main-navigation">
+                <button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
+                <ul class="menu">
+                    <li class="menu-item current-menu-item"><a href="#">Home</a></li>
+                    <li class="menu-item"><a href="#">News</a></li>
+                    <li class="menu-item"><a href="#">Live cameras</a></li>
+                    <li class="menu-item"><a href="#">Photos</a></li>
+                    <li class="menu-item"><a [routerLink]="'/formulario'">Reportes</a></li>
+                </ul> <!-- .menu -->
+            </div> <!-- .main-navigation -->
+
+            <div class="mobile-navigation"></div>
+
+        </div>
+    </div> <!-- .site-header -->
+    <div class="hero">
+        <div class="container">
+            <form action="#" class="find-location">
+                <input type="search" placeholder="Find your location..." aria-label="Search" [(ngModel)]="city" [ngModelOptions]="{standalone: true}" (keydown.enter)="onUpdateWeather($event)">
+                <button type="submit" value="Find" type="button" (click)="onUpdateWeather($event)"> buscar</button>
+            </form>
+
+        </div>
+    </div>
+    <div class="forecast-table letras">
+        <div class="container">
+            <div class="forecast-container">
+                <div class="today forecast">
+                    <div class="forecast-header">
+                        <div class="day texto" >{{date  | date:'EEEE'}}</div>
+                        <div class="date texto">{{date  | date:'d'}} de {{date  | date:'MMMM'}}</div>
+                    </div> <!-- .forecast-header -->
+                    <div class="forecast-content text-center">
+                        <div class="location blockquote">{{city_name}}</div>
+                        <div class="degree">
+                            <div class="forecast-icon text-center">
+                                <ng-container [ngSwitch]="imgconditionIcon">
+                                    <img *ngSwitchCase="'t01d'" src="../../../assets/img/icons/t01d.png" alt="" width=130>
+                                    <img *ngSwitchCase="'t01n'" src="../../../assets/img/icons/t01n.png" alt="" width=130>
+                                    <img *ngSwitchCase="'t02d'" src="../../../assets/img/icons/t02d.png" alt="" width=130>
+                                    <img *ngSwitchCase="'t02n'" src="../../../assets/img/icons/t02n.png" alt="" width=130>
+                                    <img *ngSwitchCase="'t03d'" src="../../../assets/img/icons/t03d.png" alt="" width=130>
+                                    <img *ngSwitchCase="'t03n'" src="../../../assets/img/icons/t03n.png" alt="" width=130>
+                                    <img *ngSwitchCase="'t04d'" src="../../../assets/img/icons/t04d.png" alt="" width=130>
+                                    <img *ngSwitchCase="'t04n'" src="../../../assets/img/icons/t04n.png" alt="" width=130>
+                                    <img *ngSwitchCase="'t05d'" src="../../../assets/img/icons/t05d.png" alt="" width=130>
+                                    <img *ngSwitchCase="'t05n'" src="../../../assets/img/icons/t05n.png" alt="" width=130>
+                                    <img *ngSwitchCase="'d01d'" src="../../../assets/img/icons/d01d.png" alt="" width=130>
+                                    <img *ngSwitchCase="'d01n'" src="../../../assets/img/icons/d01n.png" alt="" width=130>
+                                    <img *ngSwitchCase="'d02d'" src="../../../assets/img/icons/d02d.png" alt="" width=130>
+                                    <img *ngSwitchCase="'d02n'" src="../../../assets/img/icons/d02n.png" alt="" width=130>
+                                    <img *ngSwitchCase="'d03d'" src="../../../assets/img/icons/d03d.png" alt="" width=130>
+                                    <img *ngSwitchCase="'d03n'" src="../../../assets/img/icons/d03n.png" alt="" width=130>
+                                    <img *ngSwitchCase="'r01d'" src="../../../assets/img/icons/r01d.png" alt="" width=130>
+                                    <img *ngSwitchCase="'r01n'" src="../../../assets/img/icons/r01n.png" alt="" width=130>
+                                    <img *ngSwitchCase="'r02n'" src="../../../assets/img/icons/r02n.png" alt="" width=130>
+                                    <img *ngSwitchCase="'r03d'" src="../../../assets/img/icons/r03d.png" alt="" width=130>
+                                    <img *ngSwitchCase="'r03n'" src="../../../assets/img/icons/r03n.png" alt="" width=130>
+                                    <img *ngSwitchCase="'f01d'" src="../../../assets/img/icons/f01d.png" alt="" width=130>
+                                    <img *ngSwitchCase="'f01n'" src="../../../assets/img/icons/f01n.png" alt="" width=130>
+                                    <img *ngSwitchCase="'r04d'" src="../../../assets/img/icons/r04d.png" alt="" width=130>
+                                    <img *ngSwitchCase="'r04n'" src="../../../assets/img/icons/r04n.png" alt="" width=130>
+                                    <img *ngSwitchCase="'r05d'" src="../../../assets/img/icons/r05d.png" alt="" width=130>
+                                    <img *ngSwitchCase="'r05n'" src="../../../assets/img/icons/r05n.png" alt="" width=130>
+                                    <img *ngSwitchCase="'r06d'" src="../../../assets/img/icons/r06d.png" alt="" width=130>
+                                    <img *ngSwitchCase="'r06n'" src="../../../assets/img/icons/r06n.png" alt="" width=130>
+                                    <img *ngSwitchCase="'s01d'" src="../../../assets/img/icons/s01d.png" alt="" width=130>
+                                    <img *ngSwitchCase="'s01n'" src="../../../assets/img/icons/s01n.png" alt="" width=130>
+                                    <img *ngSwitchCase="'s02d'" src="../../../assets/img/icons/s02d.png" alt="" width=130>
+                                    <img *ngSwitchCase="'s02n'" src="../../../assets/img/icons/s02n.png" alt="" width=130>
+                                    <img *ngSwitchCase="'s03d'" src="../../../assets/img/icons/s03d.png" alt="" width=130>
+                                    <img *ngSwitchCase="'s03n'" src="../../../assets/img/icons/s03n.png" alt="" width=130>
+                                    <img *ngSwitchCase="'s04d'" src="../../../assets/img/icons/s04d.png" alt="" width=130>
+                                    <img *ngSwitchCase="'s04n'" src="../../../assets/img/icons/s04n.png" alt="" width=130>
+                                    <img *ngSwitchCase="'s05d'" src="../../../assets/img/icons/s05d.png" alt="" width=130>
+                                    <img *ngSwitchCase="'s05n'" src="../../../assets/img/icons/s05n.png" alt="" width=130>
+                                    <img *ngSwitchCase="'s06d'" src="../../../assets/img/icons/s06d.png" alt="" width=130>
+                                    <img *ngSwitchCase="'s06n'" src="../../../assets/img/icons/s06n.png" alt="" width=130>
+                                    <img *ngSwitchCase="'a01d'" src="../../../assets/img/icons/a01d.png" alt="" width=130>
+                                    <img *ngSwitchCase="'a01n'" src="../../../assets/img/icons/a01n.png" alt="" width=130>
+                                    <img *ngSwitchCase="'a02d'" src="../../../assets/img/icons/a02d.png" alt="" width=130>
+                                    <img *ngSwitchCase="'a02n'" src="../../../assets/img/icons/a02n.png" alt="" width=130>
+                                    <img *ngSwitchCase="'a03d'" src="../../../assets/img/icons/a03d.png" alt="" width=130>
+                                    <img *ngSwitchCase="'a03n'" src="../../../assets/img/icons/a03n.png" alt="" width=130>
+                                    <img *ngSwitchCase="'a04d'" src="../../../assets/img/icons/a04d.png" alt="" width=130>
+                                    <img *ngSwitchCase="'a04n'" src="../../../assets/img/icons/a04n.png" alt="" width=130>
+                                    <img *ngSwitchCase="'a05d'" src="../../../assets/img/icons/a05d.png" alt="" width=130>
+                                    <img *ngSwitchCase="'a05n'" src="../../../assets/img/icons/a05n.png" alt="" width=130>
+                                    <img *ngSwitchCase="'a06d'" src="../../../assets/img/icons/a06d.png" alt="" width=130>
+                                    <img *ngSwitchCase="'a06n'" src="../../../assets/img/icons/a06n.png" alt="" width=130>
+                                    <img *ngSwitchCase="'c01d'" src="../../../assets/img/icons/c01d.png" alt="" width=130>
+                                    <img *ngSwitchCase="'c01n'" src="../../../assets/img/icons/c01n.png" alt="" width=130>
+                                    <img *ngSwitchCase="'c02d'" src="../../../assets/img/icons/c02d.png" alt="" width=130>
+                                    <img *ngSwitchCase="'c02n'" src="../../../assets/img/icons/c02n.png" alt="" width=130>
+                                    <img *ngSwitchCase="'c03d'" src="../../../assets/img/icons/c03d.png" alt="" width=130>
+                                    <img *ngSwitchCase="'c03n'" src="../../../assets/img/icons/c03n.png" alt="" width=130>
+                                    <img *ngSwitchCase="'c04d'" src="../../../assets/img/icons/c04d.png" alt="" width=130>
+                                    <img *ngSwitchCase="'c04n'" src="../../../assets/img/icons/c04n.png" alt="" width=130>
+                                    <img *ngSwitchCase="'u00d'" src="../../../assets/img/icons/u00d.png" alt="" width=130>
+                                    <img *ngSwitchCase="'u00n'" src="../../../assets/img/icons/u00n.png" alt="" width=130>               
+                                </ng-container>
+                            </div>
+                            <div class="num text-center">{{temp}}<sup>o</sup>C</div>
+                        </div>
+                        <div>
+                            <span><img src="assets/index/images/icon-umberella.png" alt="">nubes {{clouds}}%</span>
+                            <span><img src="assets/index/images/icon-wind.png" alt="">{{wind_spd}} m/s</span>
+                            <span><img src="assets/index/images/icon-compass.png" alt="">{{wind_cdir_full}}</span>
+                        </div>
+                        <div>
+                            <span><img src="assets/index/images/icon-umberella.png" alt="">{{precip}}mm/h</span>
+                            <span><img src="assets/index/images/icon-wind.png" alt="">km/h</span>
+                            <span><img src="assets/index/images/icon-compass.png" alt="">{{wind_dir}}°</span>
+                        </div>
+                        <div>
+                            &nbsp;
+                            <span><p>{{description}}</p></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="forecast">
+                    <div class="forecast-header">
+                        <div class="day texto">{{date2  | date:'EEEE'}}</div>
+                    </div> <!-- .forecast-header -->
+                    <div class="forecast-content">
+                        <div class="forecast-icon">
+                            <ng-container [ngSwitch]="imgconditionIcon1">
+                                <img *ngSwitchCase="'t01d'" src="../../../assets/img/icons/t01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'t01n'" src="../../../assets/img/icons/t01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'t02d'" src="../../../assets/img/icons/t02d.png" alt="" width=80>
+                                <img *ngSwitchCase="'t02n'" src="../../../assets/img/icons/t02n.png" alt="" width=80>
+                                <img *ngSwitchCase="'t03d'" src="../../../assets/img/icons/t03d.png" alt="" width=80>
+                                <img *ngSwitchCase="'t03n'" src="../../../assets/img/icons/t03n.png" alt="" width=80>
+                                <img *ngSwitchCase="'t04d'" src="../../../assets/img/icons/t04d.png" alt="" width=80>
+                                <img *ngSwitchCase="'t04n'" src="../../../assets/img/icons/t04n.png" alt="" width=80>
+                                <img *ngSwitchCase="'t05d'" src="../../../assets/img/icons/t05d.png" alt="" width=80>
+                                <img *ngSwitchCase="'t05n'" src="../../../assets/img/icons/t05n.png" alt="" width=80>
+                                <img *ngSwitchCase="'d01d'" src="../../../assets/img/icons/d01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'d01n'" src="../../../assets/img/icons/d01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'d02d'" src="../../../assets/img/icons/d02d.png" alt="" width=80>
+                                <img *ngSwitchCase="'d02n'" src="../../../assets/img/icons/d02n.png" alt="" width=80>
+                                <img *ngSwitchCase="'d03d'" src="../../../assets/img/icons/d03d.png" alt="" width=80>
+                                <img *ngSwitchCase="'d03n'" src="../../../assets/img/icons/d03n.png" alt="" width=80>
+                                <img *ngSwitchCase="'r01d'" src="../../../assets/img/icons/r01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'r01n'" src="../../../assets/img/icons/r01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'r02n'" src="../../../assets/img/icons/r02n.png" alt="" width=80>
+                                <img *ngSwitchCase="'r03d'" src="../../../assets/img/icons/r03d.png" alt="" width=80>
+                                <img *ngSwitchCase="'r03n'" src="../../../assets/img/icons/r03n.png" alt="" width=80>
+                                <img *ngSwitchCase="'f01d'" src="../../../assets/img/icons/f01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'f01n'" src="../../../assets/img/icons/f01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'r04d'" src="../../../assets/img/icons/r04d.png" alt="" width=80>
+                                <img *ngSwitchCase="'r04n'" src="../../../assets/img/icons/r04n.png" alt="" width=80>
+                                <img *ngSwitchCase="'r05d'" src="../../../assets/img/icons/r05d.png" alt="" width=80>
+                                <img *ngSwitchCase="'r05n'" src="../../../assets/img/icons/r05n.png" alt="" width=80>
+                                <img *ngSwitchCase="'r06d'" src="../../../assets/img/icons/r06d.png" alt="" width=80>
+                                <img *ngSwitchCase="'r06n'" src="../../../assets/img/icons/r06n.png" alt="" width=80>
+                                <img *ngSwitchCase="'s01d'" src="../../../assets/img/icons/s01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'s01n'" src="../../../assets/img/icons/s01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'s02d'" src="../../../assets/img/icons/s02d.png" alt="" width=80>
+                                <img *ngSwitchCase="'s02n'" src="../../../assets/img/icons/s02n.png" alt="" width=80>
+                                <img *ngSwitchCase="'s03d'" src="../../../assets/img/icons/s03d.png" alt="" width=80>
+                                <img *ngSwitchCase="'s03n'" src="../../../assets/img/icons/s03n.png" alt="" width=80>
+                                <img *ngSwitchCase="'s04d'" src="../../../assets/img/icons/s04d.png" alt="" width=80>
+                                <img *ngSwitchCase="'s04n'" src="../../../assets/img/icons/s04n.png" alt="" width=80>
+                                <img *ngSwitchCase="'s05d'" src="../../../assets/img/icons/s05d.png" alt="" width=80>
+                                <img *ngSwitchCase="'s05n'" src="../../../assets/img/icons/s05n.png" alt="" width=80>
+                                <img *ngSwitchCase="'s06d'" src="../../../assets/img/icons/s06d.png" alt="" width=80>
+                                <img *ngSwitchCase="'s06n'" src="../../../assets/img/icons/s06n.png" alt="" width=80>
+                                <img *ngSwitchCase="'a01d'" src="../../../assets/img/icons/a01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'a01n'" src="../../../assets/img/icons/a01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'a02d'" src="../../../assets/img/icons/a02d.png" alt="" width=80>
+                                <img *ngSwitchCase="'a02n'" src="../../../assets/img/icons/a02n.png" alt="" width=80>
+                                <img *ngSwitchCase="'a03d'" src="../../../assets/img/icons/a03d.png" alt="" width=80>
+                                <img *ngSwitchCase="'a03n'" src="../../../assets/img/icons/a03n.png" alt="" width=80>
+                                <img *ngSwitchCase="'a04d'" src="../../../assets/img/icons/a04d.png" alt="" width=80>
+                                <img *ngSwitchCase="'a04n'" src="../../../assets/img/icons/a04n.png" alt="" width=80>
+                                <img *ngSwitchCase="'a05d'" src="../../../assets/img/icons/a05d.png" alt="" width=80>
+                                <img *ngSwitchCase="'a05n'" src="../../../assets/img/icons/a05n.png" alt="" width=80>
+                                <img *ngSwitchCase="'a06d'" src="../../../assets/img/icons/a06d.png" alt="" width=80>
+                                <img *ngSwitchCase="'a06n'" src="../../../assets/img/icons/a06n.png" alt="" width=80>
+                                <img *ngSwitchCase="'c01d'" src="../../../assets/img/icons/c01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'c01n'" src="../../../assets/img/icons/c01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'c02d'" src="../../../assets/img/icons/c02d.png" alt="" width=80>
+                                <img *ngSwitchCase="'c02n'" src="../../../assets/img/icons/c02n.png" alt="" width=80>
+                                <img *ngSwitchCase="'c03d'" src="../../../assets/img/icons/c03d.png" alt="" width=80>
+                                <img *ngSwitchCase="'c03n'" src="../../../assets/img/icons/c03n.png" alt="" width=80>
+                                <img *ngSwitchCase="'c04d'" src="../../../assets/img/icons/c04d.png" alt="" width=80>
+                                <img *ngSwitchCase="'c04n'" src="../../../assets/img/icons/c04n.png" alt="" width=80>
+                                <img *ngSwitchCase="'u00d'" src="../../../assets/img/icons/u00d.png" alt="" width=80>
+                                <img *ngSwitchCase="'u00n'" src="../../../assets/img/icons/u00n.png" alt="" width=80>               
+                            </ng-container>
+                        </div>
+                        <div class="degree">{{temp1}}<sup>o</sup>C</div>
+                        <div>{{temp_min1}}<sup>o</sup></div>
+                        <div class="">{{description1}}</div>
+                    </div>
+                </div>
+                <div class="forecast">
+                    <div class="forecast-header">
+                        <div class="day texto">{{date3  | date:'EEEE'}}</div>
+                    </div> <!-- .forecast-header -->
+                    <div class="forecast-content">
+                        <div class="forecast-icon">
+                            <ng-container [ngSwitch]="imgconditionIcon2">
+                                <img *ngSwitchCase="'t01d'" src="../../../assets/img/icons/t01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'t01n'" src="../../../assets/img/icons/t01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'t02d'" src="../../../assets/img/icons/t02d.png" alt="" width=80>
+                                <img *ngSwitchCase="'t02n'" src="../../../assets/img/icons/t02n.png" alt="" width=80>
+                                <img *ngSwitchCase="'t03d'" src="../../../assets/img/icons/t03d.png" alt="" width=80>
+                                <img *ngSwitchCase="'t03n'" src="../../../assets/img/icons/t03n.png" alt="" width=80>
+                                <img *ngSwitchCase="'t04d'" src="../../../assets/img/icons/t04d.png" alt="" width=80>
+                                <img *ngSwitchCase="'t04n'" src="../../../assets/img/icons/t04n.png" alt="" width=80>
+                                <img *ngSwitchCase="'t05d'" src="../../../assets/img/icons/t05d.png" alt="" width=80>
+                                <img *ngSwitchCase="'t05n'" src="../../../assets/img/icons/t05n.png" alt="" width=80>
+                                <img *ngSwitchCase="'d01d'" src="../../../assets/img/icons/d01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'d01n'" src="../../../assets/img/icons/d01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'d02d'" src="../../../assets/img/icons/d02d.png" alt="" width=80>
+                                <img *ngSwitchCase="'d02n'" src="../../../assets/img/icons/d02n.png" alt="" width=80>
+                                <img *ngSwitchCase="'d03d'" src="../../../assets/img/icons/d03d.png" alt="" width=80>
+                                <img *ngSwitchCase="'d03n'" src="../../../assets/img/icons/d03n.png" alt="" width=80>
+                                <img *ngSwitchCase="'r01d'" src="../../../assets/img/icons/r01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'r01n'" src="../../../assets/img/icons/r01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'r02n'" src="../../../assets/img/icons/r02n.png" alt="" width=80>
+                                <img *ngSwitchCase="'r03d'" src="../../../assets/img/icons/r03d.png" alt="" width=80>
+                                <img *ngSwitchCase="'r03n'" src="../../../assets/img/icons/r03n.png" alt="" width=80>
+                                <img *ngSwitchCase="'f01d'" src="../../../assets/img/icons/f01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'f01n'" src="../../../assets/img/icons/f01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'r04d'" src="../../../assets/img/icons/r04d.png" alt="" width=80>
+                                <img *ngSwitchCase="'r04n'" src="../../../assets/img/icons/r04n.png" alt="" width=80>
+                                <img *ngSwitchCase="'r05d'" src="../../../assets/img/icons/r05d.png" alt="" width=80>
+                                <img *ngSwitchCase="'r05n'" src="../../../assets/img/icons/r05n.png" alt="" width=80>
+                                <img *ngSwitchCase="'r06d'" src="../../../assets/img/icons/r06d.png" alt="" width=80>
+                                <img *ngSwitchCase="'r06n'" src="../../../assets/img/icons/r06n.png" alt="" width=80>
+                                <img *ngSwitchCase="'s01d'" src="../../../assets/img/icons/s01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'s01n'" src="../../../assets/img/icons/s01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'s02d'" src="../../../assets/img/icons/s02d.png" alt="" width=80>
+                                <img *ngSwitchCase="'s02n'" src="../../../assets/img/icons/s02n.png" alt="" width=80>
+                                <img *ngSwitchCase="'s03d'" src="../../../assets/img/icons/s03d.png" alt="" width=80>
+                                <img *ngSwitchCase="'s03n'" src="../../../assets/img/icons/s03n.png" alt="" width=80>
+                                <img *ngSwitchCase="'s04d'" src="../../../assets/img/icons/s04d.png" alt="" width=80>
+                                <img *ngSwitchCase="'s04n'" src="../../../assets/img/icons/s04n.png" alt="" width=80>
+                                <img *ngSwitchCase="'s05d'" src="../../../assets/img/icons/s05d.png" alt="" width=80>
+                                <img *ngSwitchCase="'s05n'" src="../../../assets/img/icons/s05n.png" alt="" width=80>
+                                <img *ngSwitchCase="'s06d'" src="../../../assets/img/icons/s06d.png" alt="" width=80>
+                                <img *ngSwitchCase="'s06n'" src="../../../assets/img/icons/s06n.png" alt="" width=80>
+                                <img *ngSwitchCase="'a01d'" src="../../../assets/img/icons/a01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'a01n'" src="../../../assets/img/icons/a01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'a02d'" src="../../../assets/img/icons/a02d.png" alt="" width=80>
+                                <img *ngSwitchCase="'a02n'" src="../../../assets/img/icons/a02n.png" alt="" width=80>
+                                <img *ngSwitchCase="'a03d'" src="../../../assets/img/icons/a03d.png" alt="" width=80>
+                                <img *ngSwitchCase="'a03n'" src="../../../assets/img/icons/a03n.png" alt="" width=80>
+                                <img *ngSwitchCase="'a04d'" src="../../../assets/img/icons/a04d.png" alt="" width=80>
+                                <img *ngSwitchCase="'a04n'" src="../../../assets/img/icons/a04n.png" alt="" width=80>
+                                <img *ngSwitchCase="'a05d'" src="../../../assets/img/icons/a05d.png" alt="" width=80>
+                                <img *ngSwitchCase="'a05n'" src="../../../assets/img/icons/a05n.png" alt="" width=80>
+                                <img *ngSwitchCase="'a06d'" src="../../../assets/img/icons/a06d.png" alt="" width=80>
+                                <img *ngSwitchCase="'a06n'" src="../../../assets/img/icons/a06n.png" alt="" width=80>
+                                <img *ngSwitchCase="'c01d'" src="../../../assets/img/icons/c01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'c01n'" src="../../../assets/img/icons/c01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'c02d'" src="../../../assets/img/icons/c02d.png" alt="" width=80>
+                                <img *ngSwitchCase="'c02n'" src="../../../assets/img/icons/c02n.png" alt="" width=80>
+                                <img *ngSwitchCase="'c03d'" src="../../../assets/img/icons/c03d.png" alt="" width=80>
+                                <img *ngSwitchCase="'c03n'" src="../../../assets/img/icons/c03n.png" alt="" width=80>
+                                <img *ngSwitchCase="'c04d'" src="../../../assets/img/icons/c04d.png" alt="" width=80>
+                                <img *ngSwitchCase="'c04n'" src="../../../assets/img/icons/c04n.png" alt="" width=80>
+                                <img *ngSwitchCase="'u00d'" src="../../../assets/img/icons/u00d.png" alt="" width=80>
+                                <img *ngSwitchCase="'u00n'" src="../../../assets/img/icons/u00n.png" alt="" width=80>               
+                            </ng-container>
+                        </div>
+                        <div class="degree">{{temp2}}<sup>o</sup>C</div>
+                        <small>{{temp_min2}}<sup>o</sup></small>
+                        <div class="">{{description2}}</div>
+                    </div>
+                </div>
+                <div class="forecast">
+                    <div class="forecast-header">
+                        <div class="day texto">{{date4  | date:'EEEE'}}</div>
+                    </div> <!-- .forecast-header -->
+                    <div class="forecast-content">
+                        <div class="forecast-icon">
+                            <ng-container [ngSwitch]="imgconditionIcon3">
+                                <img *ngSwitchCase="'t01d'" src="../../../assets/img/icons/t01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'t01n'" src="../../../assets/img/icons/t01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'t02d'" src="../../../assets/img/icons/t02d.png" alt="" width=80>
+                                <img *ngSwitchCase="'t02n'" src="../../../assets/img/icons/t02n.png" alt="" width=80>
+                                <img *ngSwitchCase="'t03d'" src="../../../assets/img/icons/t03d.png" alt="" width=80>
+                                <img *ngSwitchCase="'t03n'" src="../../../assets/img/icons/t03n.png" alt="" width=80>
+                                <img *ngSwitchCase="'t04d'" src="../../../assets/img/icons/t04d.png" alt="" width=80>
+                                <img *ngSwitchCase="'t04n'" src="../../../assets/img/icons/t04n.png" alt="" width=80>
+                                <img *ngSwitchCase="'t05d'" src="../../../assets/img/icons/t05d.png" alt="" width=80>
+                                <img *ngSwitchCase="'t05n'" src="../../../assets/img/icons/t05n.png" alt="" width=80>
+                                <img *ngSwitchCase="'d01d'" src="../../../assets/img/icons/d01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'d01n'" src="../../../assets/img/icons/d01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'d02d'" src="../../../assets/img/icons/d02d.png" alt="" width=80>
+                                <img *ngSwitchCase="'d02n'" src="../../../assets/img/icons/d02n.png" alt="" width=80>
+                                <img *ngSwitchCase="'d03d'" src="../../../assets/img/icons/d03d.png" alt="" width=80>
+                                <img *ngSwitchCase="'d03n'" src="../../../assets/img/icons/d03n.png" alt="" width=80>
+                                <img *ngSwitchCase="'r01d'" src="../../../assets/img/icons/r01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'r01n'" src="../../../assets/img/icons/r01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'r02n'" src="../../../assets/img/icons/r02n.png" alt="" width=80>
+                                <img *ngSwitchCase="'r03d'" src="../../../assets/img/icons/r03d.png" alt="" width=80>
+                                <img *ngSwitchCase="'r03n'" src="../../../assets/img/icons/r03n.png" alt="" width=80>
+                                <img *ngSwitchCase="'f01d'" src="../../../assets/img/icons/f01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'f01n'" src="../../../assets/img/icons/f01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'r04d'" src="../../../assets/img/icons/r04d.png" alt="" width=80>
+                                <img *ngSwitchCase="'r04n'" src="../../../assets/img/icons/r04n.png" alt="" width=80>
+                                <img *ngSwitchCase="'r05d'" src="../../../assets/img/icons/r05d.png" alt="" width=80>
+                                <img *ngSwitchCase="'r05n'" src="../../../assets/img/icons/r05n.png" alt="" width=80>
+                                <img *ngSwitchCase="'r06d'" src="../../../assets/img/icons/r06d.png" alt="" width=80>
+                                <img *ngSwitchCase="'r06n'" src="../../../assets/img/icons/r06n.png" alt="" width=80>
+                                <img *ngSwitchCase="'s01d'" src="../../../assets/img/icons/s01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'s01n'" src="../../../assets/img/icons/s01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'s02d'" src="../../../assets/img/icons/s02d.png" alt="" width=80>
+                                <img *ngSwitchCase="'s02n'" src="../../../assets/img/icons/s02n.png" alt="" width=80>
+                                <img *ngSwitchCase="'s03d'" src="../../../assets/img/icons/s03d.png" alt="" width=80>
+                                <img *ngSwitchCase="'s03n'" src="../../../assets/img/icons/s03n.png" alt="" width=80>
+                                <img *ngSwitchCase="'s04d'" src="../../../assets/img/icons/s04d.png" alt="" width=80>
+                                <img *ngSwitchCase="'s04n'" src="../../../assets/img/icons/s04n.png" alt="" width=80>
+                                <img *ngSwitchCase="'s05d'" src="../../../assets/img/icons/s05d.png" alt="" width=80>
+                                <img *ngSwitchCase="'s05n'" src="../../../assets/img/icons/s05n.png" alt="" width=80>
+                                <img *ngSwitchCase="'s06d'" src="../../../assets/img/icons/s06d.png" alt="" width=80>
+                                <img *ngSwitchCase="'s06n'" src="../../../assets/img/icons/s06n.png" alt="" width=80>
+                                <img *ngSwitchCase="'a01d'" src="../../../assets/img/icons/a01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'a01n'" src="../../../assets/img/icons/a01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'a02d'" src="../../../assets/img/icons/a02d.png" alt="" width=80>
+                                <img *ngSwitchCase="'a02n'" src="../../../assets/img/icons/a02n.png" alt="" width=80>
+                                <img *ngSwitchCase="'a03d'" src="../../../assets/img/icons/a03d.png" alt="" width=80>
+                                <img *ngSwitchCase="'a03n'" src="../../../assets/img/icons/a03n.png" alt="" width=80>
+                                <img *ngSwitchCase="'a04d'" src="../../../assets/img/icons/a04d.png" alt="" width=80>
+                                <img *ngSwitchCase="'a04n'" src="../../../assets/img/icons/a04n.png" alt="" width=80>
+                                <img *ngSwitchCase="'a05d'" src="../../../assets/img/icons/a05d.png" alt="" width=80>
+                                <img *ngSwitchCase="'a05n'" src="../../../assets/img/icons/a05n.png" alt="" width=80>
+                                <img *ngSwitchCase="'a06d'" src="../../../assets/img/icons/a06d.png" alt="" width=80>
+                                <img *ngSwitchCase="'a06n'" src="../../../assets/img/icons/a06n.png" alt="" width=80>
+                                <img *ngSwitchCase="'c01d'" src="../../../assets/img/icons/c01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'c01n'" src="../../../assets/img/icons/c01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'c02d'" src="../../../assets/img/icons/c02d.png" alt="" width=80>
+                                <img *ngSwitchCase="'c02n'" src="../../../assets/img/icons/c02n.png" alt="" width=80>
+                                <img *ngSwitchCase="'c03d'" src="../../../assets/img/icons/c03d.png" alt="" width=80>
+                                <img *ngSwitchCase="'c03n'" src="../../../assets/img/icons/c03n.png" alt="" width=80>
+                                <img *ngSwitchCase="'c04d'" src="../../../assets/img/icons/c04d.png" alt="" width=80>
+                                <img *ngSwitchCase="'c04n'" src="../../../assets/img/icons/c04n.png" alt="" width=80>
+                                <img *ngSwitchCase="'u00d'" src="../../../assets/img/icons/u00d.png" alt="" width=80>
+                                <img *ngSwitchCase="'u00n'" src="../../../assets/img/icons/u00n.png" alt="" width=80>               
+                            </ng-container>
+                        </div>
+                        <div class="degree">{{temp3}}<sup>o</sup>C</div>
+                        <small>{{temp_min3}}<sup>o</sup></small>
+                        <div class="">{{description3}}</div>
+                    </div>
+                </div>
+                <div class="forecast">
+                    <div class="forecast-header">
+                        <div class="day texto">{{date5  | date:'EEEE'}}</div>
+                    </div> <!-- .forecast-header -->
+                    <div class="forecast-content">
+                        <div class="forecast-icon">
+                            <ng-container [ngSwitch]="imgconditionIcon4">
+                                <img *ngSwitchCase="'t01d'" src="../../../assets/img/icons/t01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'t01n'" src="../../../assets/img/icons/t01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'t02d'" src="../../../assets/img/icons/t02d.png" alt="" width=80>
+                                <img *ngSwitchCase="'t02n'" src="../../../assets/img/icons/t02n.png" alt="" width=80>
+                                <img *ngSwitchCase="'t03d'" src="../../../assets/img/icons/t03d.png" alt="" width=80>
+                                <img *ngSwitchCase="'t03n'" src="../../../assets/img/icons/t03n.png" alt="" width=80>
+                                <img *ngSwitchCase="'t04d'" src="../../../assets/img/icons/t04d.png" alt="" width=80>
+                                <img *ngSwitchCase="'t04n'" src="../../../assets/img/icons/t04n.png" alt="" width=80>
+                                <img *ngSwitchCase="'t05d'" src="../../../assets/img/icons/t05d.png" alt="" width=80>
+                                <img *ngSwitchCase="'t05n'" src="../../../assets/img/icons/t05n.png" alt="" width=80>
+                                <img *ngSwitchCase="'d01d'" src="../../../assets/img/icons/d01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'d01n'" src="../../../assets/img/icons/d01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'d02d'" src="../../../assets/img/icons/d02d.png" alt="" width=80>
+                                <img *ngSwitchCase="'d02n'" src="../../../assets/img/icons/d02n.png" alt="" width=80>
+                                <img *ngSwitchCase="'d03d'" src="../../../assets/img/icons/d03d.png" alt="" width=80>
+                                <img *ngSwitchCase="'d03n'" src="../../../assets/img/icons/d03n.png" alt="" width=80>
+                                <img *ngSwitchCase="'r01d'" src="../../../assets/img/icons/r01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'r01n'" src="../../../assets/img/icons/r01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'r02n'" src="../../../assets/img/icons/r02n.png" alt="" width=80>
+                                <img *ngSwitchCase="'r03d'" src="../../../assets/img/icons/r03d.png" alt="" width=80>
+                                <img *ngSwitchCase="'r03n'" src="../../../assets/img/icons/r03n.png" alt="" width=80>
+                                <img *ngSwitchCase="'f01d'" src="../../../assets/img/icons/f01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'f01n'" src="../../../assets/img/icons/f01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'r04d'" src="../../../assets/img/icons/r04d.png" alt="" width=80>
+                                <img *ngSwitchCase="'r04n'" src="../../../assets/img/icons/r04n.png" alt="" width=80>
+                                <img *ngSwitchCase="'r05d'" src="../../../assets/img/icons/r05d.png" alt="" width=80>
+                                <img *ngSwitchCase="'r05n'" src="../../../assets/img/icons/r05n.png" alt="" width=80>
+                                <img *ngSwitchCase="'r06d'" src="../../../assets/img/icons/r06d.png" alt="" width=80>
+                                <img *ngSwitchCase="'r06n'" src="../../../assets/img/icons/r06n.png" alt="" width=80>
+                                <img *ngSwitchCase="'s01d'" src="../../../assets/img/icons/s01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'s01n'" src="../../../assets/img/icons/s01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'s02d'" src="../../../assets/img/icons/s02d.png" alt="" width=80>
+                                <img *ngSwitchCase="'s02n'" src="../../../assets/img/icons/s02n.png" alt="" width=80>
+                                <img *ngSwitchCase="'s03d'" src="../../../assets/img/icons/s03d.png" alt="" width=80>
+                                <img *ngSwitchCase="'s03n'" src="../../../assets/img/icons/s03n.png" alt="" width=80>
+                                <img *ngSwitchCase="'s04d'" src="../../../assets/img/icons/s04d.png" alt="" width=80>
+                                <img *ngSwitchCase="'s04n'" src="../../../assets/img/icons/s04n.png" alt="" width=80>
+                                <img *ngSwitchCase="'s05d'" src="../../../assets/img/icons/s05d.png" alt="" width=80>
+                                <img *ngSwitchCase="'s05n'" src="../../../assets/img/icons/s05n.png" alt="" width=80>
+                                <img *ngSwitchCase="'s06d'" src="../../../assets/img/icons/s06d.png" alt="" width=80>
+                                <img *ngSwitchCase="'s06n'" src="../../../assets/img/icons/s06n.png" alt="" width=80>
+                                <img *ngSwitchCase="'a01d'" src="../../../assets/img/icons/a01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'a01n'" src="../../../assets/img/icons/a01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'a02d'" src="../../../assets/img/icons/a02d.png" alt="" width=80>
+                                <img *ngSwitchCase="'a02n'" src="../../../assets/img/icons/a02n.png" alt="" width=80>
+                                <img *ngSwitchCase="'a03d'" src="../../../assets/img/icons/a03d.png" alt="" width=80>
+                                <img *ngSwitchCase="'a03n'" src="../../../assets/img/icons/a03n.png" alt="" width=80>
+                                <img *ngSwitchCase="'a04d'" src="../../../assets/img/icons/a04d.png" alt="" width=80>
+                                <img *ngSwitchCase="'a04n'" src="../../../assets/img/icons/a04n.png" alt="" width=80>
+                                <img *ngSwitchCase="'a05d'" src="../../../assets/img/icons/a05d.png" alt="" width=80>
+                                <img *ngSwitchCase="'a05n'" src="../../../assets/img/icons/a05n.png" alt="" width=80>
+                                <img *ngSwitchCase="'a06d'" src="../../../assets/img/icons/a06d.png" alt="" width=80>
+                                <img *ngSwitchCase="'a06n'" src="../../../assets/img/icons/a06n.png" alt="" width=80>
+                                <img *ngSwitchCase="'c01d'" src="../../../assets/img/icons/c01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'c01n'" src="../../../assets/img/icons/c01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'c02d'" src="../../../assets/img/icons/c02d.png" alt="" width=80>
+                                <img *ngSwitchCase="'c02n'" src="../../../assets/img/icons/c02n.png" alt="" width=80>
+                                <img *ngSwitchCase="'c03d'" src="../../../assets/img/icons/c03d.png" alt="" width=80>
+                                <img *ngSwitchCase="'c03n'" src="../../../assets/img/icons/c03n.png" alt="" width=80>
+                                <img *ngSwitchCase="'c04d'" src="../../../assets/img/icons/c04d.png" alt="" width=80>
+                                <img *ngSwitchCase="'c04n'" src="../../../assets/img/icons/c04n.png" alt="" width=80>
+                                <img *ngSwitchCase="'u00d'" src="../../../assets/img/icons/u00d.png" alt="" width=80>
+                                <img *ngSwitchCase="'u00n'" src="../../../assets/img/icons/u00n.png" alt="" width=80>               
+                            </ng-container>
+                        </div>
+                        <div class="degree">{{temp4}}<sup>o</sup>C</div>
+                        <small>{{temp_min4}}<sup>o</sup></small>
+                        <div class="">{{description4}}</div>
+                    </div>
+                </div>
+                <div class="forecast">
+                    <div class="forecast-header">
+                        <div class="day texto">{{date6  | date:'EEEE'}}</div>
+                    </div> <!-- .forecast-header -->
+                    <div class="forecast-content">
+                        <div class="forecast-icon">
+                            <ng-container [ngSwitch]="imgconditionIcon5">
+                                <img *ngSwitchCase="'t01d'" src="../../../assets/img/icons/t01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'t01n'" src="../../../assets/img/icons/t01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'t02d'" src="../../../assets/img/icons/t02d.png" alt="" width=80>
+                                <img *ngSwitchCase="'t02n'" src="../../../assets/img/icons/t02n.png" alt="" width=80>
+                                <img *ngSwitchCase="'t03d'" src="../../../assets/img/icons/t03d.png" alt="" width=80>
+                                <img *ngSwitchCase="'t03n'" src="../../../assets/img/icons/t03n.png" alt="" width=80>
+                                <img *ngSwitchCase="'t04d'" src="../../../assets/img/icons/t04d.png" alt="" width=80>
+                                <img *ngSwitchCase="'t04n'" src="../../../assets/img/icons/t04n.png" alt="" width=80>
+                                <img *ngSwitchCase="'t05d'" src="../../../assets/img/icons/t05d.png" alt="" width=80>
+                                <img *ngSwitchCase="'t05n'" src="../../../assets/img/icons/t05n.png" alt="" width=80>
+                                <img *ngSwitchCase="'d01d'" src="../../../assets/img/icons/d01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'d01n'" src="../../../assets/img/icons/d01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'d02d'" src="../../../assets/img/icons/d02d.png" alt="" width=80>
+                                <img *ngSwitchCase="'d02n'" src="../../../assets/img/icons/d02n.png" alt="" width=80>
+                                <img *ngSwitchCase="'d03d'" src="../../../assets/img/icons/d03d.png" alt="" width=80>
+                                <img *ngSwitchCase="'d03n'" src="../../../assets/img/icons/d03n.png" alt="" width=80>
+                                <img *ngSwitchCase="'r01d'" src="../../../assets/img/icons/r01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'r01n'" src="../../../assets/img/icons/r01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'r02n'" src="../../../assets/img/icons/r02n.png" alt="" width=80>
+                                <img *ngSwitchCase="'r03d'" src="../../../assets/img/icons/r03d.png" alt="" width=80>
+                                <img *ngSwitchCase="'r03n'" src="../../../assets/img/icons/r03n.png" alt="" width=80>
+                                <img *ngSwitchCase="'f01d'" src="../../../assets/img/icons/f01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'f01n'" src="../../../assets/img/icons/f01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'r04d'" src="../../../assets/img/icons/r04d.png" alt="" width=80>
+                                <img *ngSwitchCase="'r04n'" src="../../../assets/img/icons/r04n.png" alt="" width=80>
+                                <img *ngSwitchCase="'r05d'" src="../../../assets/img/icons/r05d.png" alt="" width=80>
+                                <img *ngSwitchCase="'r05n'" src="../../../assets/img/icons/r05n.png" alt="" width=80>
+                                <img *ngSwitchCase="'r06d'" src="../../../assets/img/icons/r06d.png" alt="" width=80>
+                                <img *ngSwitchCase="'r06n'" src="../../../assets/img/icons/r06n.png" alt="" width=80>
+                                <img *ngSwitchCase="'s01d'" src="../../../assets/img/icons/s01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'s01n'" src="../../../assets/img/icons/s01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'s02d'" src="../../../assets/img/icons/s02d.png" alt="" width=80>
+                                <img *ngSwitchCase="'s02n'" src="../../../assets/img/icons/s02n.png" alt="" width=80>
+                                <img *ngSwitchCase="'s03d'" src="../../../assets/img/icons/s03d.png" alt="" width=80>
+                                <img *ngSwitchCase="'s03n'" src="../../../assets/img/icons/s03n.png" alt="" width=80>
+                                <img *ngSwitchCase="'s04d'" src="../../../assets/img/icons/s04d.png" alt="" width=80>
+                                <img *ngSwitchCase="'s04n'" src="../../../assets/img/icons/s04n.png" alt="" width=80>
+                                <img *ngSwitchCase="'s05d'" src="../../../assets/img/icons/s05d.png" alt="" width=80>
+                                <img *ngSwitchCase="'s05n'" src="../../../assets/img/icons/s05n.png" alt="" width=80>
+                                <img *ngSwitchCase="'s06d'" src="../../../assets/img/icons/s06d.png" alt="" width=80>
+                                <img *ngSwitchCase="'s06n'" src="../../../assets/img/icons/s06n.png" alt="" width=80>
+                                <img *ngSwitchCase="'a01d'" src="../../../assets/img/icons/a01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'a01n'" src="../../../assets/img/icons/a01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'a02d'" src="../../../assets/img/icons/a02d.png" alt="" width=80>
+                                <img *ngSwitchCase="'a02n'" src="../../../assets/img/icons/a02n.png" alt="" width=80>
+                                <img *ngSwitchCase="'a03d'" src="../../../assets/img/icons/a03d.png" alt="" width=80>
+                                <img *ngSwitchCase="'a03n'" src="../../../assets/img/icons/a03n.png" alt="" width=80>
+                                <img *ngSwitchCase="'a04d'" src="../../../assets/img/icons/a04d.png" alt="" width=80>
+                                <img *ngSwitchCase="'a04n'" src="../../../assets/img/icons/a04n.png" alt="" width=80>
+                                <img *ngSwitchCase="'a05d'" src="../../../assets/img/icons/a05d.png" alt="" width=80>
+                                <img *ngSwitchCase="'a05n'" src="../../../assets/img/icons/a05n.png" alt="" width=80>
+                                <img *ngSwitchCase="'a06d'" src="../../../assets/img/icons/a06d.png" alt="" width=80>
+                                <img *ngSwitchCase="'a06n'" src="../../../assets/img/icons/a06n.png" alt="" width=80>
+                                <img *ngSwitchCase="'c01d'" src="../../../assets/img/icons/c01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'c01n'" src="../../../assets/img/icons/c01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'c02d'" src="../../../assets/img/icons/c02d.png" alt="" width=80>
+                                <img *ngSwitchCase="'c02n'" src="../../../assets/img/icons/c02n.png" alt="" width=80>
+                                <img *ngSwitchCase="'c03d'" src="../../../assets/img/icons/c03d.png" alt="" width=80>
+                                <img *ngSwitchCase="'c03n'" src="../../../assets/img/icons/c03n.png" alt="" width=80>
+                                <img *ngSwitchCase="'c04d'" src="../../../assets/img/icons/c04d.png" alt="" width=80>
+                                <img *ngSwitchCase="'c04n'" src="../../../assets/img/icons/c04n.png" alt="" width=80>
+                                <img *ngSwitchCase="'u00d'" src="../../../assets/img/icons/u00d.png" alt="" width=80>
+                                <img *ngSwitchCase="'u00n'" src="../../../assets/img/icons/u00n.png" alt="" width=80>               
+                            </ng-container>
+                        </div>
+                        <div class="degree">{{temp5}}<sup>o</sup>C</div>
+                        <small>{{temp_min5}}<sup>o</sup></small>
+                        <div class="">{{description5}}</div>
+                    </div>
+                </div>
+                <div class="forecast">
+                    <div class="forecast-header">
+                        <div class="day texto">{{date7  | date:'EEEE'}}</div>
+                    </div> <!-- .forecast-header -->
+                    <div class="forecast-content">
+                        <div class="forecast-icon">
+                            <ng-container [ngSwitch]="imgconditionIcon">
+                                <img *ngSwitchCase="'t01d'" src="../../../assets/img/icons/t01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'t01n'" src="../../../assets/img/icons/t01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'t02d'" src="../../../assets/img/icons/t02d.png" alt="" width=80>
+                                <img *ngSwitchCase="'t02n'" src="../../../assets/img/icons/t02n.png" alt="" width=80>
+                                <img *ngSwitchCase="'t03d'" src="../../../assets/img/icons/t03d.png" alt="" width=80>
+                                <img *ngSwitchCase="'t03n'" src="../../../assets/img/icons/t03n.png" alt="" width=80>
+                                <img *ngSwitchCase="'t04d'" src="../../../assets/img/icons/t04d.png" alt="" width=80>
+                                <img *ngSwitchCase="'t04n'" src="../../../assets/img/icons/t04n.png" alt="" width=80>
+                                <img *ngSwitchCase="'t05d'" src="../../../assets/img/icons/t05d.png" alt="" width=80>
+                                <img *ngSwitchCase="'t05n'" src="../../../assets/img/icons/t05n.png" alt="" width=80>
+                                <img *ngSwitchCase="'d01d'" src="../../../assets/img/icons/d01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'d01n'" src="../../../assets/img/icons/d01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'d02d'" src="../../../assets/img/icons/d02d.png" alt="" width=80>
+                                <img *ngSwitchCase="'d02n'" src="../../../assets/img/icons/d02n.png" alt="" width=80>
+                                <img *ngSwitchCase="'d03d'" src="../../../assets/img/icons/d03d.png" alt="" width=80>
+                                <img *ngSwitchCase="'d03n'" src="../../../assets/img/icons/d03n.png" alt="" width=80>
+                                <img *ngSwitchCase="'r01d'" src="../../../assets/img/icons/r01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'r01n'" src="../../../assets/img/icons/r01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'r02n'" src="../../../assets/img/icons/r02n.png" alt="" width=80>
+                                <img *ngSwitchCase="'r03d'" src="../../../assets/img/icons/r03d.png" alt="" width=80>
+                                <img *ngSwitchCase="'r03n'" src="../../../assets/img/icons/r03n.png" alt="" width=80>
+                                <img *ngSwitchCase="'f01d'" src="../../../assets/img/icons/f01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'f01n'" src="../../../assets/img/icons/f01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'r04d'" src="../../../assets/img/icons/r04d.png" alt="" width=80>
+                                <img *ngSwitchCase="'r04n'" src="../../../assets/img/icons/r04n.png" alt="" width=80>
+                                <img *ngSwitchCase="'r05d'" src="../../../assets/img/icons/r05d.png" alt="" width=80>
+                                <img *ngSwitchCase="'r05n'" src="../../../assets/img/icons/r05n.png" alt="" width=80>
+                                <img *ngSwitchCase="'r06d'" src="../../../assets/img/icons/r06d.png" alt="" width=80>
+                                <img *ngSwitchCase="'r06n'" src="../../../assets/img/icons/r06n.png" alt="" width=80>
+                                <img *ngSwitchCase="'s01d'" src="../../../assets/img/icons/s01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'s01n'" src="../../../assets/img/icons/s01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'s02d'" src="../../../assets/img/icons/s02d.png" alt="" width=80>
+                                <img *ngSwitchCase="'s02n'" src="../../../assets/img/icons/s02n.png" alt="" width=80>
+                                <img *ngSwitchCase="'s03d'" src="../../../assets/img/icons/s03d.png" alt="" width=80>
+                                <img *ngSwitchCase="'s03n'" src="../../../assets/img/icons/s03n.png" alt="" width=80>
+                                <img *ngSwitchCase="'s04d'" src="../../../assets/img/icons/s04d.png" alt="" width=80>
+                                <img *ngSwitchCase="'s04n'" src="../../../assets/img/icons/s04n.png" alt="" width=80>
+                                <img *ngSwitchCase="'s05d'" src="../../../assets/img/icons/s05d.png" alt="" width=80>
+                                <img *ngSwitchCase="'s05n'" src="../../../assets/img/icons/s05n.png" alt="" width=80>
+                                <img *ngSwitchCase="'s06d'" src="../../../assets/img/icons/s06d.png" alt="" width=80>
+                                <img *ngSwitchCase="'s06n'" src="../../../assets/img/icons/s06n.png" alt="" width=80>
+                                <img *ngSwitchCase="'a01d'" src="../../../assets/img/icons/a01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'a01n'" src="../../../assets/img/icons/a01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'a02d'" src="../../../assets/img/icons/a02d.png" alt="" width=80>
+                                <img *ngSwitchCase="'a02n'" src="../../../assets/img/icons/a02n.png" alt="" width=80>
+                                <img *ngSwitchCase="'a03d'" src="../../../assets/img/icons/a03d.png" alt="" width=80>
+                                <img *ngSwitchCase="'a03n'" src="../../../assets/img/icons/a03n.png" alt="" width=80>
+                                <img *ngSwitchCase="'a04d'" src="../../../assets/img/icons/a04d.png" alt="" width=80>
+                                <img *ngSwitchCase="'a04n'" src="../../../assets/img/icons/a04n.png" alt="" width=80>
+                                <img *ngSwitchCase="'a05d'" src="../../../assets/img/icons/a05d.png" alt="" width=80>
+                                <img *ngSwitchCase="'a05n'" src="../../../assets/img/icons/a05n.png" alt="" width=80>
+                                <img *ngSwitchCase="'a06d'" src="../../../assets/img/icons/a06d.png" alt="" width=80>
+                                <img *ngSwitchCase="'a06n'" src="../../../assets/img/icons/a06n.png" alt="" width=80>
+                                <img *ngSwitchCase="'c01d'" src="../../../assets/img/icons/c01d.png" alt="" width=80>
+                                <img *ngSwitchCase="'c01n'" src="../../../assets/img/icons/c01n.png" alt="" width=80>
+                                <img *ngSwitchCase="'c02d'" src="../../../assets/img/icons/c02d.png" alt="" width=80>
+                                <img *ngSwitchCase="'c02n'" src="../../../assets/img/icons/c02n.png" alt="" width=80>
+                                <img *ngSwitchCase="'c03d'" src="../../../assets/img/icons/c03d.png" alt="" width=80>
+                                <img *ngSwitchCase="'c03n'" src="../../../assets/img/icons/c03n.png" alt="" width=80>
+                                <img *ngSwitchCase="'c04d'" src="../../../assets/img/icons/c04d.png" alt="" width=80>
+                                <img *ngSwitchCase="'c04n'" src="../../../assets/img/icons/c04n.png" alt="" width=80>
+                                <img *ngSwitchCase="'u00d'" src="../../../assets/img/icons/u00d.png" alt="" width=80>
+                                <img *ngSwitchCase="'u00n'" src="../../../assets/img/icons/u00n.png" alt="" width=80>               
+                            </ng-container>
+                        </div>
+                        <div class="degree">{{temp6}}<sup>o</sup>C</div>
+                        <small>{{temp_min6}}<sup>o</sup></small>
+                        <div class="">{{description6}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="main-content">
+        <!-- <div class="fullwidth-block">
+            <div class="container">
+                <h2 class="section-title">Live cameras</h2>
+                <div class="row letras">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="live-camera">
+                            <figure class="live-camera-cover"><img src="assets/index/images/live-camera-1.jpg" alt=""></figure>
+                            <h3 class="location">New York</h3>
+                            <small class="date">8 oct, 8:00AM</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="live-camera">
+                            <figure class="live-camera-cover"><img src="assets/index/images/live-camera-2.jpg" alt=""></figure>
+                            <h3 class="location">Los Angeles</h3>
+                            <small class="date">8 oct, 8:00AM</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="live-camera">
+                            <figure class="live-camera-cover"><img src="assets/index/images/live-camera-3.jpg" alt=""></figure>
+                            <h3 class="location">Chicago</h3>
+                            <small class="date">8 oct, 8:00AM</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="live-camera">
+                            <figure class="live-camera-cover"><img src="assets/index/images/live-camera-4.jpg" alt=""></figure>
+                            <h3 class="location">London</h3>
+                            <small class="date">8 oct, 8:00AM</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- <div class="fullwidth-block letras" data-bg-color="#262936">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="news">
+                            <div class="date">06.10</div>
+                            <h3><a href="#">Doloremque laudantium totam sequi </a></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo saepe assumenda dolorem
+                                modi, expedita voluptatum ducimus necessitatibus. Asperiores quod reprehenderit
+                                necessitatibus harum, mollitia, odit et consequatur maxime nisi amet doloremque.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="news">
+                            <div class="date">06.10</div>
+                            <h3><a href="#">Doloremque laudantium totam sequi </a></h3>
+                            <p>Nobis architecto consequatur ab, ea, eum autem aperiam accusantium placeat vitae facere
+                                explicabo temporibus minus distinctio cum optio quis, dignissimos eius aspernatur fuga.
+                                Praesentium totam, corrupti beatae amet expedita veritatis.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="news">
+                            <div class="date">06.10</div>
+                            <h3><a href="#">Doloremque laudantium totam sequi </a></h3>
+                            <p>Enim impedit officiis placeat qui recusandae doloremque possimus, iusto blanditiis, quam
+                                optio delectus maiores. Possimus rerum, velit cum natus eos. Cumque pariatur beatae
+                                asperiores, esse libero quas ad dolorem. Voluptates.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- <div class="fullwidth-block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h2 class="section-title">Application features</h2>
+                        <ul class="arrow-feature">
+                            <li>
+                                <h3>Natus error sit voluptatem accusantium</h3>
+                                <p>Doloremque laudantium totam rem aperiam Inventore veritatis et quasi architecto
+                                    beatae vitae.</p>
+                            </li>
+                            <li>
+                                <h3>Natus error sit voluptatem accusantium</h3>
+                                <p>Doloremque laudantium totam rem aperiam Inventore veritatis et quasi architecto
+                                    beatae vitae.</p>
+                            </li>
+                            <li>
+                                <h3>Natus error sit voluptatem accusantium</h3>
+                                <p>Doloremque laudantium totam rem aperiam Inventore veritatis et quasi architecto
+                                    beatae vitae.</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h2 class="section-title">Weather analyssis</h2>
+                        <ul class="arrow-list">
+                            <li><a href="#">Accusantium doloremque laudantium rem aperiam</a></li>
+                            <li><a href="#">Eaque ipsa quae ab illo inventore veritatis quasi</a></li>
+                            <li><a href="#">Architecto beatae vitae dicta sunt explicabo</a></li>
+                            <li><a href="#">Nemo enim ipsam voluptatem quia voluptas</a></li>
+                            <li><a href="#">Aspernatur aut odit aut fugit, sed quia consequuntur</a></li>
+                            <li><a href="#">Magni dolores eos qui ratione voluptatem sequi</a></li>
+                            <li><a href="#">Neque porro quisquam est qui dolorem ipsum quia</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h2 class="section-title">Awesome Photos</h2>
+                        <div class="photo-grid">
+                            <a href="#"><img src="assets/index/images/thumb-1.jpg" alt="#"></a>
+                            <a href="#"><img src="assets/index/images/thumb-2.jpg" alt="#"></a>
+                            <a href="#"><img src="assets/index/images/thumb-3.jpg" alt="#"></a>
+                            <a href="#"><img src="assets/index/images/thumb-4.jpg" alt="#"></a>
+                            <a href="#"><img src="assets/index/images/thumb-5.jpg" alt="#"></a>
+                            <a href="#"><img src="assets/index/images/thumb-6.jpg" alt="#"></a>
+                            <a href="#"><img src="assets/index/images/thumb-7.jpg" alt="#"></a>
+                            <a href="#"><img src="assets/index/images/thumb-8.jpg" alt="#"></a>
+                            <a href="#"><img src="assets/index/images/thumb-9.jpg" alt="#"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </main> 
+    <!-- .main-content -->
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <form action="#" class="subscribe-form">
+                        <input type="text" placeholder="Enter your email to subscribe...">
+                        <input type="submit" value="Subscribe">
+                    </form>
+                </div>
+                <div class="col-md-3 col-md-offset-1">
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <p class="letras">Copyright 2014 Company name. Designed by Themezy. All rights reserved</p>
+        </div>
+    </footer> <!-- .site-footer -->
+    
+</div>
